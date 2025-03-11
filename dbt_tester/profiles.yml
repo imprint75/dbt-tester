@@ -1,0 +1,12 @@
+dbt_tester:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 172.22.0.2
+      user: username
+      pass: password
+      port: 5432
+      dbname: dbt_test
+      schema: airbyte
+      threads: 4
