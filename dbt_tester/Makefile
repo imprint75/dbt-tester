@@ -34,7 +34,7 @@ logs: ## Show logs for all or c=<name> containers
 add-dbt-tbls:
 	CURRENT_HOST=$(grep host profiles.yml)
 	NEW_HOST=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dbtpostgres)
-	NEW_HOST_STRING="      host: $(new_HOST)"
+	NEW_HOST_STRING="      host: $(NEW_HOST)"
 	sed -i '' -e "s/$CURRENT_HOST/$NEW_HOST_STRING/g" profiles.yml
 	docker compose --project-name dbttest run dbt build
 
