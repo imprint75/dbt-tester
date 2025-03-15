@@ -10,7 +10,7 @@ services:
      - "5432:5432"
    volumes:
      - postgres_data:/var/lib/postgresql/data
-     - ../scripts:/var/scripts
+     - ./scripts:/var/scripts
    env_file:
      - .env
  dbt:
@@ -19,7 +19,7 @@ services:
    platform: linux/amd64
    build: .
    volumes:
-     - .:/usr/app/dbt
+     - ./dbt:/usr/app/dbt
    ports:
      - "8080:8080"
    environment:
